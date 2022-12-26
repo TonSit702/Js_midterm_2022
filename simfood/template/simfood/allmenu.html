@@ -1,0 +1,29 @@
+{% extends 'simfood/base.html' %}
+
+{% block content %}
+	  <h3>ເມນູທັງໝົດ</h3>
+	  <p>This example adds a dropdown menu in the navbar.</p>
+
+	  <div class="container-fluid">
+	  	<div class="row">
+	  {% for mn in menu %}
+	  		<div class="col-sm-3">
+	  			<div class="card" style="width: 18rem;">
+	  			  <img class="card-img-top" src="{{ mn.image.url }}" alt="Card-image" width="100px" height="220px" style="padding: 20px;">
+	  			  <div class="card-body">
+	  			    <h5 class="card-title">{{mn.name}}</h5>
+	  			    <p class="card-text">{{mn.price}}</p>
+	  			    <p class="card-text">{{mn.detail}}</p>
+	  			    {% if mn.instock == True %}
+	  			    	<a href="#" class="btn btn-success">ສັ່ງໄດ້</a>
+	  			    {% else %}
+	  			    	<a href="#" class="btn btn-warning">ຫມົດແລ້ວ</a>
+	  			    {% endif %}
+	  			  </div>
+	  			</div>
+	  			<br>
+	  		</div>
+	  {% endfor %}
+	  </div>
+	</div>
+{% endblock content %}
